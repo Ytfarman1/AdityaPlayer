@@ -393,9 +393,12 @@ async def start_stream_in_vc(client, message):
     video_telegram = replied.video or replied.document if replied else None
     
     if audio_telegram or video_telegram:
-        return await message.reply_text(
-            "**🥺 Sorry, I Can't Stream Telegram Media Files Right Now.**"
-        )
+        try:
+            return await message.reply_text(
+                "**🥺 Sorry, I Can't Stream Telegram Media Files Right Now.**"
+            )
+        except Exception:
+            return
     else:
         if len(message.command) < 2:
             return await message.reply_text(
@@ -595,6 +598,7 @@ Stream Audio Or Video❗...
             await bot.send_photo(console.LOG_GROUP_ID, photo=thumbnail, caption=log_message)
         except Exception:
             pass
+
 
 
 
