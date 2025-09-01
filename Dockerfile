@@ -25,4 +25,4 @@ EXPOSE 8080
 ENV PYTHONUNBUFFERED=1
 
 # Run the application
-CMD ["python3" "-m","AdityaHalder]
+CMD ["python3", "-m", "AdityaHalder"]
